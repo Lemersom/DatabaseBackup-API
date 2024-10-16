@@ -4,6 +4,7 @@ import com.example.backupvault.util.Encrypt;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "database_config")
 public class DatabaseConfigModel {
 
     @Id

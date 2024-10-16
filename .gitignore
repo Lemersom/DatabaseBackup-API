@@ -34,3 +34,4 @@ build/
 
 ### Environment ###
 src/main/resources/application-prod.properties
+/backup

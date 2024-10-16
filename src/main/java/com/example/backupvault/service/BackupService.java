@@ -3,6 +3,7 @@ package com.example.backupvault.service;
 import com.example.backupvault.model.DatabaseConfigModel;
 import com.example.backupvault.util.FileUtil;
 import com.example.backupvault.util.JsonUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -16,16 +17,22 @@ import java.util.Map;
 @Service
 public class BackupService {
 
-    public void backupDatabase(DatabaseConfigModel dbConfig, String backupDirectory) {
+    @Value("${backup.directory}")
+    private String backupDirectory;
+
+    public void backupDatabase(DatabaseConfigModel dbConfig) {
         Connection connection = null;
+
+        String dateDirectory = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new java.util.Date());
+        String databaseBackupDirectory = backupDirectory + File.separator + dbConfig.getDatabaseName() + File.separator + dateDirectory;
+
         try {
             connection = createConnection(dbConfig);
             connection.setAutoCommit(false);
 
-            List<String> tables = getTableNames(connection);
-
-            String databaseBackupDirectory = backupDirectory + File.separator + dbConfig.getDatabaseName();
             FileUtil.createDirectoriesIfNotExists(databaseBackupDirectory);
+
+            List<String> tables = getTableNames(connection);
 
             for(String tableName : tables) {
                 List<Map<String,Object>> tableData = getTableData(connection, tableName);
@@ -46,7 +53,7 @@ public class BackupService {
             }
 
             System.err.println("Error on backup: " + e.getMessage());
-            cleanupBackupDirectory(backupDirectory);
+            cleanupBackupDirectory(databaseBackupDirectory);
         } finally {
             if(connection != null) {
                 try {
@@ -59,7 +66,6 @@ public class BackupService {
     }
 
     private Connection createConnection(DatabaseConfigModel dbConfig) throws SQLException {
-        // TODO: Class.forName may be needed to load driver
 
         String url = dbConfig.getConnectionUrl();
 
@@ -100,8 +106,8 @@ public class BackupService {
         return rows;
     }
 
-    private void cleanupBackupDirectory(String backupDir) {
-        File directory = new File(backupDir);
+    private void cleanupBackupDirectory(String dateBackupDirectory) {
+        File directory = new File(dateBackupDirectory);
         if(directory.exists()) {
             File[] files = directory.listFiles();
             if(files != null) {

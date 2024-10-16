@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/database-config")
+@RequestMapping("/api/database-config")
 public class DatabaseConfigController {
 
     private final DatabaseConfigService databaseConfigService;

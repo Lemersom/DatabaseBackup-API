@@ -10,6 +10,7 @@ public record DatabaseConfigDTO(
         String host,
         @NotNull(message = "port must not be null")
         int port,
+        String customUrl, // customUrl can be null
         @NotBlank(message = "databaseName must not be blank")
         String databaseName,
         @NotBlank(message = "username must not be blank")

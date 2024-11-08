@@ -23,6 +23,9 @@ public class DatabaseConfigModel {
     @Column(name = "database_name", nullable = false)
     private String databaseName;
 
+    @Column(name = "custom_url", nullable = true)
+    private String customUrl;
+
     @Column(name = "username", nullable = false)
     @Convert(converter = Encrypt.class)
     private String username;
@@ -38,12 +41,23 @@ public class DatabaseConfigModel {
         this.host = host;
         this.port = port;
         this.databaseName = databaseName;
+        this.customUrl = null;
+        this.username = username;
+        this.password = password;
+    }
+
+    public DatabaseConfigModel(String databaseType, String host, int port, String databaseName, String customUrl, String username, String password) {
+        this.databaseType = databaseType;
+        this.host = host;
+        this.port = port;
+        this.databaseName = databaseName;
+        this.customUrl = customUrl;
         this.username = username;
         this.password = password;
     }
 
     public String getConnectionUrl() {
-        return String.format("jdbc:%s://%s:%d/%s", databaseType, host, port, databaseName);
+        return customUrl.isBlank() ? String.format("jdbc:%s://%s:%d/%s", databaseType, host, port, databaseName) : customUrl;
     }
 
     public Long getId() {
@@ -84,6 +98,14 @@ public class DatabaseConfigModel {
 
     public void setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
+    }
+
+    public String getCustomUrl() {
+        return customUrl;
+    }
+
+    public void setCustomUrl(String customUrl) {
+        this.customUrl = customUrl;
     }
 
     public String getUsername() {

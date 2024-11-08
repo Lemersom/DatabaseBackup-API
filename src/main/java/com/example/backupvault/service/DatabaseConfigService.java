@@ -31,7 +31,8 @@ public class DatabaseConfigService {
                         databaseConfig.getDatabaseType(),
                         databaseConfig.getHost(),
                         databaseConfig.getPort(),
-                        databaseConfig.getDatabaseName()
+                        databaseConfig.getDatabaseName(),
+                        databaseConfig.getCustomUrl()
                 )).toList();
     }
 
@@ -45,7 +46,8 @@ public class DatabaseConfigService {
                 databaseConfig.get().getDatabaseType(),
                 databaseConfig.get().getHost(),
                 databaseConfig.get().getPort(),
-                databaseConfig.get().getDatabaseName()
+                databaseConfig.get().getDatabaseName(),
+                databaseConfig.get().getCustomUrl()
         );
 
         return Optional.of(databaseConfigResponse);

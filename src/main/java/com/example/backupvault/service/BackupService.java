@@ -20,7 +20,7 @@ public class BackupService {
     @Value("${backup.directory}")
     private String backupDirectory;
 
-    public void backupDatabase(DatabaseConfigModel dbConfig) {
+    public String backupDatabase(DatabaseConfigModel dbConfig) {
         Connection connection = null;
 
         String dateDirectory = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new java.util.Date());
@@ -63,13 +63,12 @@ public class BackupService {
                 }
             }
         }
+
+        return databaseBackupDirectory;
     }
 
     private Connection createConnection(DatabaseConfigModel dbConfig) throws SQLException {
-
-        String url = dbConfig.getConnectionUrl();
-
-        return DriverManager.getConnection(url, dbConfig.getUsername(), dbConfig.getPassword());
+        return DriverManager.getConnection(dbConfig.getConnectionUrl(), dbConfig.getUsername(), dbConfig.getPassword());
     }
 
     private List<String> getTableNames(Connection connection) throws SQLException {

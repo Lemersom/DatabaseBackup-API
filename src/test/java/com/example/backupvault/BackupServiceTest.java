@@ -10,7 +10,6 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.io.File;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

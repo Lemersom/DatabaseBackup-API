@@ -65,25 +65,8 @@ public class BackupService {
     private void backupTableData(Connection connection, String tableName, String outputDir) throws SQLException, IOException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName);
-
-        List<String[]> data = new ArrayList<>();
-        ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-        int columnCount = resultSetMetaData.getColumnCount();
-
-        while (resultSet.next()) {
-            String[] row = new String[columnCount];
-            for (int i = 0; i < columnCount; i++) {
-                row[i] = resultSet.getString(i + 1);
-            }
-            data.add(row);
-        }
-
-        String[] headers = new String[columnCount];
-        for (int i = 0; i < columnCount; i++) {
-            headers[i] = resultSetMetaData.getColumnName(i + 1);
-        }
-
-        CsvUtil.writeToCsv(outputDir + File.separator + tableName + "_data.csv", data, headers);
+        
+        CsvUtil.writeToCsv(outputDir + File.separator + tableName + "_data.csv", resultSet);
     }
 
     private void backupTableSchema(Connection connection, String tableName, String outputDir) throws SQLException, IOException {
@@ -91,13 +74,14 @@ public class BackupService {
         ResultSet columns = metaData.getColumns(null, null, tableName, null);
 
         List<String[]> schema = new ArrayList<>();
+        schema.add(new String[]{"column_name", "data_type"});
         while(columns.next()) {
             String columnName = columns.getString("COLUMN_NAME");
             String dataType = columns.getString("TYPE_NAME");
             schema.add(new String[]{columnName, dataType});
         }
 
-        CsvUtil.writeToCsv(outputDir + File.separator + tableName + "_schema.csv", schema, new String[]{"column_name", "data_type"});
+        CsvUtil.writeToCsv(outputDir + File.separator + tableName + "_schema.csv", schema);
     }
 
     private List<String> getTableNames(Connection connection) throws SQLException {

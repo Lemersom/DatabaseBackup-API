@@ -1,23 +1,39 @@
 package com.example.backupvault.util;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
+import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 
 import java.io.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class CsvUtil {
 
-    public static void writeToCsv(String filePath, List<String[]> data, String[] headers) throws IOException {
-        try (CSVWriter writer = new CSVWriter(new FileWriter(filePath))) {
-            if (headers != null) {
-                writer.writeNext(headers);
-            }
-            for (String[] row : data) {
-                writer.writeNext(row);
-            }
-        }
+    public static void writeToCsv(String filePath, List<String[]> data) throws IOException {
+        CSVWriterBuilder builder = new CSVWriterBuilder(new FileWriter(filePath));
+
+        ICSVWriter writer = builder
+                .build();
+
+        writer.writeAll(data, false);
+
+        writer.close();
+    }
+
+    public static void writeToCsv(String filePath, ResultSet resultSet) throws IOException, SQLException {
+        ResultSetHelperService rsHelperService = new ResultSetHelperService();
+        rsHelperService.setDateFormat("yyyy-MM-dd");
+
+        CSVWriterBuilder builder = new CSVWriterBuilder(new FileWriter(filePath));
+
+        ICSVWriter writer = builder
+                .withResultSetHelper(rsHelperService)
+                .build();
+
+        writer.writeAll(resultSet, true, false, false);
+
+        writer.close();
     }
 
     public static List<String[]> readFromCsv(String filePath) throws IOException, CsvException {
@@ -25,4 +41,5 @@ public class CsvUtil {
             return reader.readAll();
         }
     }
+
 }

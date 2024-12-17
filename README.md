@@ -1,4 +1,4 @@
-# Database Backup Vault
+# Database Backup API
 
 - **Currently under development**
 

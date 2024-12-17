@@ -1,4 +1,4 @@
-package com.example.backupvault;
+package com.example.backupdatabase;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

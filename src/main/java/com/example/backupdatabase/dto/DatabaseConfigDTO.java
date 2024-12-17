@@ -1,4 +1,4 @@
-package com.example.backupvault.dto;
+package com.example.backupdatabase.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

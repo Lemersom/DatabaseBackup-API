@@ -1,4 +1,4 @@
-package com.example.backupvault.util;
+package com.example.backupdatabase.util;
 
 import jakarta.persistence.AttributeConverter;
 import org.springframework.beans.factory.annotation.Autowired;

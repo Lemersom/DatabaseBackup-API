@@ -1,6 +1,6 @@
-package com.example.backupvault.repository;
+package com.example.backupdatabase.repository;
 
-import com.example.backupvault.model.DatabaseConfigModel;
+import com.example.backupdatabase.model.DatabaseConfigModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

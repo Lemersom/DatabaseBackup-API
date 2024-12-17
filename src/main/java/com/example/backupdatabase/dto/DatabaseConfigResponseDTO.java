@@ -1,4 +1,4 @@
-package com.example.backupvault.dto;
+package com.example.backupdatabase.dto;
 
 public record DatabaseConfigResponseDTO(
         String databaseType,

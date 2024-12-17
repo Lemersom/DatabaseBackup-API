@@ -1,9 +1,9 @@
-package com.example.backupvault.service;
+package com.example.backupdatabase.service;
 
-import com.example.backupvault.dto.DatabaseConfigDTO;
-import com.example.backupvault.dto.DatabaseConfigResponseDTO;
-import com.example.backupvault.model.DatabaseConfigModel;
-import com.example.backupvault.repository.DatabaseConfigRepository;
+import com.example.backupdatabase.dto.DatabaseConfigDTO;
+import com.example.backupdatabase.dto.DatabaseConfigResponseDTO;
+import com.example.backupdatabase.model.DatabaseConfigModel;
+import com.example.backupdatabase.repository.DatabaseConfigRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

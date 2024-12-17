@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>backupvault</artifactId>
+	<artifactId>backupdatabase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BackupVault</name>
-	<description>Centralized database backup management</description>
+	<name>BackupDatabase</name>
+	<description>Java Spring Boot REST API for database backups</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,7 +1,7 @@
-package com.example.backupvault;
+package com.example.backupdatabase;
 
-import com.example.backupvault.model.DatabaseConfigModel;
-import com.example.backupvault.service.BackupService;
+import com.example.backupdatabase.model.DatabaseConfigModel;
+import com.example.backupdatabase.service.BackupService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,6 +1,6 @@
-package com.example.backupvault.model;
+package com.example.backupdatabase.model;
 
-import com.example.backupvault.util.Encrypt;
+import com.example.backupdatabase.util.Encrypt;
 import jakarta.persistence.*;
 
 @Entity

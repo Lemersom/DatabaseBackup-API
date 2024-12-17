@@ -1,7 +1,7 @@
-package com.example.backupvault.controller;
+package com.example.backupdatabase.controller;
 
-import com.example.backupvault.model.DatabaseConfigModel;
-import com.example.backupvault.service.BackupService;
+import com.example.backupdatabase.model.DatabaseConfigModel;
+import com.example.backupdatabase.service.BackupService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

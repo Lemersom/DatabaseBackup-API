@@ -1,4 +1,4 @@
-package com.example.backupdatabase;
+package com.example.databasebackup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

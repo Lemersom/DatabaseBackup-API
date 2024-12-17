@@ -1,4 +1,4 @@
-package com.example.backupdatabase.util;
+package com.example.databasebackup.util;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;

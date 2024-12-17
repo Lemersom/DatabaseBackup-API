@@ -1,7 +1,7 @@
-package com.example.backupdatabase.service;
+package com.example.databasebackup.service;
 
-import com.example.backupdatabase.model.DatabaseConfigModel;
-import com.example.backupdatabase.util.CsvUtil;
+import com.example.databasebackup.model.DatabaseConfigModel;
+import com.example.databasebackup.util.CsvUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.backupdatabase.model;
+package com.example.databasebackup.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 

@@ -1,9 +1,9 @@
-package com.example.backupdatabase.controller;
+package com.example.databasebackup.controller;
 
-import com.example.backupdatabase.dto.DatabaseConfigDTO;
-import com.example.backupdatabase.dto.DatabaseConfigResponseDTO;
-import com.example.backupdatabase.model.DatabaseConfigModel;
-import com.example.backupdatabase.service.DatabaseConfigService;
+import com.example.databasebackup.dto.DatabaseConfigDTO;
+import com.example.databasebackup.dto.DatabaseConfigResponseDTO;
+import com.example.databasebackup.model.DatabaseConfigModel;
+import com.example.databasebackup.service.DatabaseConfigService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;

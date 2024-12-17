@@ -1,9 +1,9 @@
-package com.example.backupdatabase.service;
+package com.example.databasebackup.service;
 
-import com.example.backupdatabase.dto.DatabaseConfigDTO;
-import com.example.backupdatabase.dto.DatabaseConfigResponseDTO;
-import com.example.backupdatabase.model.DatabaseConfigModel;
-import com.example.backupdatabase.repository.DatabaseConfigRepository;
+import com.example.databasebackup.dto.DatabaseConfigDTO;
+import com.example.databasebackup.dto.DatabaseConfigResponseDTO;
+import com.example.databasebackup.model.DatabaseConfigModel;
+import com.example.databasebackup.repository.DatabaseConfigRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

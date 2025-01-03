@@ -1,50 +1,17 @@
 package com.example.databasebackup.model;
 
-import com.example.databasebackup.util.Encrypt;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "database_config")
 public class DatabaseConfigModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(name = "database_type", nullable = false)
     private String databaseType;
-
-    @Column(name = "host", nullable = false)
     private String host;
-
-    @Column(name = "port", nullable = false)
     private int port;
-
-    @Column(name = "database_name", nullable = false)
     private String databaseName;
-
-    @Column(name = "custom_url", nullable = true)
     private String customUrl;
-
-    @Column(name = "username", nullable = false)
-    @Convert(converter = Encrypt.class)
     private String username;
-
-    @Column(name = "password", nullable = false)
-    @Convert(converter = Encrypt.class)
     private String password;
 
     public DatabaseConfigModel() {};
-
-    public DatabaseConfigModel(String databaseType, String host, int port, String databaseName, String username, String password) {
-        this.databaseType = databaseType;
-        this.host = host;
-        this.port = port;
-        this.databaseName = databaseName;
-        this.customUrl = null;
-        this.username = username;
-        this.password = password;
-    }
 
     public DatabaseConfigModel(String databaseType, String host, int port, String databaseName, String customUrl, String username, String password) {
         this.databaseType = databaseType;
@@ -54,6 +21,10 @@ public class DatabaseConfigModel {
         this.customUrl = customUrl;
         this.username = username;
         this.password = password;
+    }
+
+    public DatabaseConfigModel(String databaseType, String host, int port, String databaseName, String username, String password) {
+        this(databaseType, host, port, databaseName, null, username, password);
     }
 
     public String getConnectionUrl() {

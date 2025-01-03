@@ -1,7 +1,9 @@
 package com.example.databasebackup.controller;
 
+import com.example.databasebackup.dto.DatabaseConfigDTO;
 import com.example.databasebackup.model.DatabaseConfigModel;
 import com.example.databasebackup.service.BackupService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,9 @@ public class BackupController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createBackup(@RequestBody DatabaseConfigModel dbConfig) {
+    public ResponseEntity<String> createBackup(@RequestBody DatabaseConfigDTO dbConfigDTO) {
+        DatabaseConfigModel dbConfig = new DatabaseConfigModel();
+        BeanUtils.copyProperties(dbConfigDTO, dbConfig);
         try {
             backupService.backupDatabase(dbConfig);
             return ResponseEntity.ok("Backup successfully created for database: " + dbConfig.getDatabaseName());

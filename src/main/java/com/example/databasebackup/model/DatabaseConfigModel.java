@@ -1,6 +1,8 @@
 package com.example.databasebackup.model;
 
-public class DatabaseConfigModel {
+import java.io.Serializable;
+
+public class DatabaseConfigModel implements Serializable {
 
     private Long id;
     private String databaseType;

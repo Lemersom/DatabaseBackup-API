@@ -27,7 +27,7 @@ The application ensures atomicity during backups, preventing partial commits if 
       String password              // dbpassword
   ) {}
   ```
-  JSON request example:
+  Example request body for `POST /api/backup`:
   ```
     {
       "databaseType": "postgres",

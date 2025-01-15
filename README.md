@@ -15,29 +15,17 @@ The application ensures atomicity during backups, preventing partial commits if 
 
 * Configure the application by using the **application-dev.properties** file as a reference.
 
-* The application accepts a **DatabaseConfigDTO** through the standard endpoint. This DTO includes the necessary database connection details.
+* Example request body for `POST /api/backup`:
   ```
-  public record DatabaseConfigDTO(
-      String databaseType,         // postgres
-      String host,                 // localhost
-      int port,                    // 5432
-      String databaseName,         // testdb
-      String customUrl,            // (optional) jdbc:postgresql://localhost:5432/testdb
-      String username,             // dbuser
-      String password              // dbpassword
-  ) {}
-  ```
-  Example request body for `POST /api/backup`:
-  ```
-    {
-      "databaseType": "postgres",
-      "host": "localhost",
-      "port": 5432,
-      "databaseName": "testdb",
-      "customUrl": "jdbc:postgresql://localhost:5432/testdb",
-      "username": "dbuser",
-      "password": "dbpassword"
-    }
+  {
+    "databaseType": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "databaseName": "testdb",
+    "customUrl": "jdbc:postgresql://localhost:5432/testdb",
+    "username": "dbuser",
+    "password": "dbpassword"
+  }
   ```
 
 * Backup Output:

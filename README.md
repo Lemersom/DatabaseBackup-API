@@ -61,4 +61,7 @@ The application ensures atomicity during backups, preventing partial commits if 
       isactive,bool
       ```
 
-  
+# Related Repositories
+
+* [DBBackupScheduler-API](https://github.com/Lemersom/DBBackupScheduler-API)
+* [CsvToSqlConverter-API](https://github.com/Lemersom/CsvToSqlConverter-API)
